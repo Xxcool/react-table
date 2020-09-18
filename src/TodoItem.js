@@ -1,5 +1,14 @@
 import React, { Fragment } from "react";
-import { Button, Table, Popconfirm, Select, Form, Input, Modal, message } from "antd";
+import {
+  Button,
+  Table,
+  Popconfirm,
+  Select,
+  Form,
+  Input,
+  Modal,
+  message,
+} from "antd";
 import axios from "axios";
 import "./todoItem.less";
 
@@ -135,16 +144,16 @@ class TodoItem extends React.Component {
         this.setState({
           visible: false,
         });
-        
+
         const addData = [...this.state.data];
-        addData.push(values)
-        let count = 0
-        addData.map(item => {
-          count ++
-          if(!item.id) {
-            item.id = count
+        addData.push(values);
+        let count = 0;
+        addData.map((item) => {
+          count++;
+          if (!item.id) {
+            item.id = count;
           }
-        })
+        });
         message.success("successful");
         // 将新增的数据储存到本地
         sessionStorage.setItem("data", JSON.stringify(addData));
@@ -181,7 +190,7 @@ class TodoItem extends React.Component {
                 allowClear
                 placeholder="Please select"
                 onChange={this.handleChange}
-                style={{width: 120}}
+                style={{ width: 120 }}
               >
                 <Option value="id">ID</Option>
                 <Option value="name">Name</Option>
@@ -212,7 +221,11 @@ class TodoItem extends React.Component {
             </Button>,
           ]}
         >
-          <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} ref={this.formRef}>
+          <Form
+            labelCol={{ span: 4 }}
+            wrapperCol={{ span: 14 }}
+            ref={this.formRef}
+          >
             <Form.Item
               label="Name"
               name="name"
@@ -223,7 +236,14 @@ class TodoItem extends React.Component {
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: "Please input your Email!" }]}
+              rules={[
+                { required: true, message: "Please input your Email!" },
+                {
+                  pattern: /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/,
+
+                  message: "E-mail format is incorrect",
+                },
+              ]}
             >
               <Input />
             </Form.Item>
