@@ -11,8 +11,6 @@ import {
 } from "antd";
 import axios from "axios";
 import "./todoItem.less";
-
-const { Option } = Select;
 class TodoItem extends React.Component {
   constructor(props) {
     super(props);
@@ -85,7 +83,7 @@ class TodoItem extends React.Component {
     // 当value存在并且为id的时候，按照id降序排列
     // 当value存在并且为name的时候，按照a-z的顺序排列
     if (value) {
-      if (value == "id") {
+      if (value === "id") {
         this.setState({ data: this.sortKey(data, "id") });
       } else {
         let arr = data.sort((a, b) => a.name.localeCompare(b.name));
@@ -106,7 +104,7 @@ class TodoItem extends React.Component {
     // 当输入有值时候进行模糊查询，为空的时候显示原数据
     if (value) {
       dataList.filter((item) => {
-        if (item.name.search(value) != -1) {
+        if (item.name.search(value) !== -1) {
           newListData.push(item);
         }
         return newListData;
@@ -173,6 +171,7 @@ class TodoItem extends React.Component {
   };
 
   render() {
+    const { Option } = Select;
     return (
       <Fragment>
         <div className="container">
