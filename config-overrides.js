@@ -1,5 +1,16 @@
 const { override, fixBabelImports, addLessLoader } = require("customize-cra");
 
+// 打包配置
+const addCustomize = () => (config) => {
+  // 修改path目录
+  const path = require('path');
+  const paths = require('react-scripts/config/paths');
+  paths.appBuild = path.join(path.dirname(paths.appBuild), 'dist');
+  config.output.path = path.join(path.dirname(config.output.path), 'dist');
+
+  return config;
+};
+
 module.exports = override(
   // 针对antd 实现按需打包：根据import来打包 (使用babel-plugin-import)
   fixBabelImports("import", {
@@ -11,5 +22,7 @@ module.exports = override(
   addLessLoader({
     javascriptEnabled: true,
     modifyVars: { "@primary-color": "#1DA57A" },
-  })
+  }),
+
+  addCustomize()
 );
