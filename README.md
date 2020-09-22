@@ -13,8 +13,8 @@ yarn build
 ```
 
 ### image
-<img align="left" width="260" height="300" src="https://github.com/Xxcool/react-todoTable/blob/master/src/assets/images/1.png" />
+<img align="left" width="220" height="300" src="https://github.com/Xxcool/react-todoTable/blob/master/src/assets/images/1.png" />
 
-<img align="left" width="260" height="300" src="https://github.com/Xxcool/react-todoTable/blob/master/src/assets/images/2.png" />
+<img align="left" width="220" height="300" src="https://github.com/Xxcool/react-todoTable/blob/master/src/assets/images/2.png" />
 
-<img align="left" width="260" height="300" src="https://github.com/Xxcool/react-todoTable/blob/master/src/assets/images/3.png" />
+<img align="left" width="220" height="300" src="https://github.com/Xxcool/react-todoTable/blob/master/src/assets/images/3.png" />
