@@ -10,8 +10,8 @@ import {
   message,
 } from "antd";
 import axios from "axios";
-import "./todoItem.less";
-class TodoItem extends React.Component {
+import "./home.less";
+class Home extends React.Component {
   constructor(props) {
     super(props);
 
@@ -40,7 +40,9 @@ class TodoItem extends React.Component {
               title="Sure to delete?"
               onConfirm={() => this.handleDelete(record.id)}
             >
-              <a>Delete</a>
+              <Button type="link" size="small">
+                Delete
+              </Button>
             </Popconfirm>
           ) : null,
       },
@@ -151,6 +153,7 @@ class TodoItem extends React.Component {
           if (!item.id) {
             item.id = count;
           }
+          return item.id;
         });
         message.success("successful");
         // 将新增的数据储存到本地
@@ -187,7 +190,6 @@ class TodoItem extends React.Component {
             <Form.Item label="Sort By">
               <Select
                 allowClear
-                placeholder="Please select"
                 onChange={this.handleChange}
                 style={{ width: 120 }}
               >
@@ -253,4 +255,4 @@ class TodoItem extends React.Component {
   }
 }
 
-export default TodoItem;
+export default Home;
